@@ -3,8 +3,12 @@ import { C } from '../constant.js'
 import { get } from '../service/aws-dynamo-db.js';
 import { authToken, currentAuthInfo } from '../service/google-auth.js'
 import { nextEvents } from '../service/google-calendar.js'
-import { escapeHtmlBody, sendHTML } from '../service/telegram.js'
+import { sendHTML } from '../service/telegram.js'
+import { escapeHtmlBody } from '../util/telegram.js'
 
+/**
+ * 곧 시작할 이벤트에 대하여 텔레그램 알림
+ */
 export async function exec() {
     if (currentAuthInfo() == null)
         await authToken(JSON.parse(await get(C.DYNAMO_DB.GOOGLE_API_CLIENT_TOKEN, true)));

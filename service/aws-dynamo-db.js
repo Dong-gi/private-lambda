@@ -4,7 +4,6 @@ import { retry } from '../util/function.js'
 
 /** @type {Map<string, string>} */
 const cache = new Map();
-
 const ddbClient = new DynamoDBClient({ region: 'ap-south-1' });
 const ddbDocClient = DynamoDBDocumentClient.from(ddbClient);
 

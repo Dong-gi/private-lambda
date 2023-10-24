@@ -26,6 +26,7 @@
     "@google-cloud/local-auth": "^3.0.0",
     "axios": "^1.5.1",
     "date-fns-tz": "^2.0.0",
-    "googleapis": "^128.0.0"
+    "googleapis": "^128.0.0",
+    "jsdom": "^22.1.0"
   }
 }
