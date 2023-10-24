@@ -14,7 +14,7 @@ export async function exec() {
         await authToken(JSON.parse(await get(C.DYNAMO_DB.GOOGLE_API_CLIENT_TOKEN, true)));
 
     const eventArr = await nextEvents(10);
-    const maxStartTime = new Date(Date.now() + 600_000);
+    const maxStartTime = new Date(Date.now() + 60_000 * 30);
 
     const msgArr = eventArr.filter(e => {
         const startTimeTxt = e?.start?.dateTime || e?.start?.date;
