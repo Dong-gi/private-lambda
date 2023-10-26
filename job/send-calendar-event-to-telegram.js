@@ -14,7 +14,8 @@ export async function exec() {
         await authToken(JSON.parse(await get(C.DYNAMO_DB.GOOGLE_API_CLIENT_TOKEN, true)));
 
     const eventArr = await nextEvents(10);
-    const maxStartTime = new Date(Date.now() + 60_000 * 30);
+    const minStartTime = new Date();
+    const maxStartTime = new Date(minStartTime.getTime() + 60_000 * 30);
 
     const msgArr = eventArr.filter(e => {
         const startTimeTxt = e?.start?.dateTime || e?.start?.date;
@@ -23,7 +24,7 @@ export async function exec() {
 
         const startTime = toDate(startTimeTxt, { timeZone: 'Asia/Seoul' });
         e.start.dateTime = formatInTimeZone(startTime, 'Asia/Seoul', 'yyyy-MM-dd HH:mm:ss');
-        return startTime <= maxStartTime;
+        return minStartTime <= startTime && startTime <= maxStartTime;
     }).map(e => `<b>${escapeHtmlBody(e.summary)}</b>@<a href="${e.htmlLink}">${e.start.dateTime}</a>`)
 
     console.log(`Event count = ${eventArr.length}, target count = ${msgArr.length}`)
