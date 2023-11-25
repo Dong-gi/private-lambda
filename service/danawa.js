@@ -16,7 +16,7 @@ export async function checkDanawaPrice(pcode) {
     const dom = new JSDOM(res.data);
     const result = {
         url,
-        productName: dom.window.document.querySelector('.prod_tit').textContent.trim(),
+        productName: dom.window.document.querySelector('.prod_tit .title').textContent.trim(),
         /** @type {{mall: string, price: number, url: string}[]} */
         priceArr: []
     }
