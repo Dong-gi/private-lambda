@@ -21,12 +21,12 @@
   },
   "homepage": "https://github.com/Dong-gi/private-lambda#readme",
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.433.0",
-    "@aws-sdk/lib-dynamodb": "^3.433.0",
-    "@google-cloud/local-auth": "^3.0.0",
-    "axios": "^1.8.2",
-    "date-fns-tz": "^2.0.0",
-    "googleapis": "^128.0.0",
-    "jsdom": "^22.1.0"
+    "@aws-sdk/client-dynamodb": "^3.967.0",
+    "@aws-sdk/lib-dynamodb": "^3.967.0",
+    "@google-cloud/local-auth": "^3.0.1",
+    "axios": "^1.13.2",
+    "date-fns-tz": "^3.2.0",
+    "googleapis": "^170.0.0",
+    "jsdom": "^27.4.0"
   }
 }
